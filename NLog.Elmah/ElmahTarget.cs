@@ -62,7 +62,7 @@ namespace NLog.Elmah
 			var error = logEvent.Exception == null ? new Error() : httpContext != null ? new Error(logEvent.Exception, httpContext) : new Error(logEvent.Exception);
 			var type = error.Exception != null
 						   ? error.Exception.GetType().FullName
-						   : LogLevelAsType ? logEvent.Level.Name : string.Empty;
+						   : LogLevelAsType ? logEvent.Level.Name : "NLog";
 			error.Type = type;
 			error.Message = logMessage;
 			error.Time = GetCurrentDateTime == null ? logEvent.TimeStamp : GetCurrentDateTime();
